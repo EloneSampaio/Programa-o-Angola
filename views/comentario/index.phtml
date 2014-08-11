@@ -1,0 +1,42 @@
+<div class="panel-body">
+    <br />
+    <br />
+    <hr>
+
+  
+        <a href="<?php URL . print $this->link; ?>">Novo</a>
+   
+ <?php if (isset($this->comentario)&& !empty($this->comentario)): ?>
+    <table class="table  table-condensed table-hover table-striped table-bordered">
+
+        <thead>
+            <tr>
+                <th>Comentarios</th> 
+                <th>Usuario</th> 
+                <th>Comentario</th>
+                <th>Alterar</th>
+                <th>Apagar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+           
+                <?php foreach ($this->comentario as $valor): ?>
+                    <tr>
+                        <td><?php print $valor['nome']; ?></td>
+                        <td><?php print $valor['msg']; ?></td>
+                        <td><a rel="<?php print $valor['id_comentario']; ?>" href="<?php print URL . "comentario/editar/" . $valor['id_comentario']; ?>" id="altera"><i class="glyphicon glyphicon-pencil">Alterar</i></a></td>
+                        <td><a rel="<?php print $valor['id_comentario']; ?>" href="<?php print URL . "comentario/apagar/" . $valor['id_comentario']; ?>" id="delete"><i class="glyphicon glyphicon-trash">Apagar</i></a></td>
+                    </tr>
+               <?php endforeach; ?>
+                   
+            </tbody>
+         </table>
+        <?php else: ?>
+            <h2>Não existe nenhuma comentario cadastrado</h2>
+         <?php endif; ?>
+   
+</div>
+<ul class="pagination">
+    <li><?php if (isset($this->paginacion) && !empty($this->paginacion)) echo $this->paginacion; ?></li>
+</ul>

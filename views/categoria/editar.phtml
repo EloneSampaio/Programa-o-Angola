@@ -1,0 +1,26 @@
+<hr>
+<br />
+<br />
+
+    <?php foreach ($this->dados as $valor): ;?>
+
+<h2><?php print $this->titulo;?></h2><br />
+     <div class="row">
+    <div class="col-lg-6">
+        <form  action="editar" method="POST"  class="form form-group" id="" >
+            
+        <div class="form-group">
+        <label class="label label-info">Nome</label>
+        <input type="text" name="nome" class="form-control" value="<?php if(isset($this->dados)) print $valor['nome']; ?> "/>
+        <input type="hidden" name="guardar" value="1"/>
+    </div>
+     <div class="form-group">
+     <label class="label label-info">Descrição</label> 
+     <input type="text" name="descricao" class="form-control" value="<?php if(isset($this->dados)) print $valor['descricao']; ?>"/>
+      <?php endforeach;?>
+     </div>
+            <div class="form-group"><input class="btn btn-success" type="submit" value="Guardar" /><i class="glyphicon glyphicon-saved"></i></div>
+</form>
+       
+    </div>
+    </div>

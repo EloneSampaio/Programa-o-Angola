@@ -1,0 +1,90 @@
+<br /><br /><br /><br /><br />
+
+<section class="container-fluid">
+    <!--Inicio do panel esquerdo---->
+
+    <aside class="col-sm-3">
+        <?php if (isset($this->categoria)): ?>
+            <h2>Categorias</h2>
+            <?php foreach ($this->categoria as $d): ?> 
+                <div class="panel panel-default">
+                    <div class="panel-heading"><?php print $d['nome']; ?></div> 
+                    <div class="panel-body">
+                        <p>
+                            <?php print $d['descricao'] . "<br />"; ?> 
+                        </p>
+
+
+
+                    </div>   
+
+
+                </div>
+
+
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </aside> 
+
+    <!--Fim do panel esquerdo---->
+
+    <!-----Panel Central----->
+
+    <section class="col-sm-6">
+
+        <section id="cd-timeline" class="cd-container">
+            <?php if (isset($this->tutorial)): ?>
+            <?php  foreach ($this->tutorial as $d): ?>
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture"> <img src="public/img/cd-icon-picture.svg" alt="Picture"> </div>
+                    <!-- cd-timeline-img -->
+
+                    <div class="cd-timeline-content">
+                        <h2><?php print $d['titulo']; ?></h2>
+                        <p> <?php print $d['descricao']; ?> .</p>
+                        <a href="#0" class="cd-read-more">Leia Mais</a> <span class="cd-date">Jan 14</span> </div>
+                    <!-- cd-timeline-content --> 
+                </div>
+                <!-- cd-timeline-block -->
+            
+                    <?php endforeach; ?>
+                <?php endif;?>
+            <!-- cd-timeline-block --> 
+        </section>
+
+
+    </section>
+    <!-----FIM DO Panel Central----->
+
+    <!----- Panel Directo----->
+
+    <section class="col-sm-3">
+        <?php if (isset($this->tutorial)): ?>
+            <h2>Tutorias</h2>
+            <aside class="panel panel-default">
+
+                <?php foreach ($this->tutorial as $d): ?> 
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><?php print $d['titulo']; ?></div> 
+                        <div class="panel-body">
+                            <p>
+                            <?php print $d['descricao']; ?> 
+                        </p>
+                        </div>   
+                    </div>
+
+                <?php endforeach; ?>
+
+            </aside>
+
+
+        </section>
+    <?php endif; ?>
+
+    
+    
+    
+</section>
+<?php
+if (isset($this->footer) && !empty($this->footer))
+    echo $this->footer;?>

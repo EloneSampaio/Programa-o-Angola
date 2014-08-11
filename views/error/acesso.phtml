@@ -1,0 +1,12 @@
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+
+<h2 style="text-align: center"><?php if(isset($this->mensagem_erro)) print $this->mensagem_erro; ?></h2>
+<p>&nbsp;</p>
+<a href="<?php print URL?> " style="text-align: center">Voltar A PAGINA INICIAL</a>|
+<a href="javascrip:history.back(1)">Voltar A Pagina Anterior</a>
+<?php if(!Session::get("autenticado")):   ?>
+    
+   | <a href="<?php print URL.'login';?>" style="text-align: center">Ir Para Pagina de Login</a>
+    
+ <?php endif;?>

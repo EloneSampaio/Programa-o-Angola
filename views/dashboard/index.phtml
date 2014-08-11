@@ -1,0 +1,110 @@
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Navegacao Movel</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<?php URL ?>index">Portal Admin</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+
+                <li class="active"><a href="<?php URL ?>dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+
+
+                <?php if (isset($_layoutParam["admin"])): ?>
+                    <?php for ($i = 0; $i < count($_layoutParam["admin"]); $i++): ?>
+                        <?php (($item && $_layoutParam["admin"][$i]["id"] == $item) ? $item_style = "corrent" : $item_style = ""); ?> 
+
+                        <li><a id="clic" rel="<?php print $_layoutParam["admin"][$i]["titulo"]; ?>" href="#" > <?php echo $_layoutParam["admin"][$i]["titulo"]; ?></a></li>
+                        <?php
+                    endfor;
+                endif;
+                ?>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right navbar-user">
+                <li class="dropdown messages-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Mensanges <span class="badge">7</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">7 Novas Mensagens</li>
+                        <?php for ($i = 0; $i <= 2; $i++): ?>
+                            <li class="message-preview">
+                                <a href="#">
+                                    <span class="avatar"><img src="http://placehold.it/50x50"></span>
+                                    <span class="name"><?php print $_SESSION['Nome']; ?>:</span>
+                                    <span class="message">Ola, Esse e o exemplo de uma mensagem...</span>
+                                    <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li
+                        <?php endfor; ?>
+                        <li><a href="#">Ver Caixa de Mensagens <span class="badge">7</span></a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Elone Sampaio <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="fa fa-user"></i> Perfil</a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i> Mensagens <span class="badge">7</span></a></li>
+                        <li><a href="#"><i class="fa fa-gear"></i> Configuracos</a></li>
+                        <li class="divider"></li>
+                        <li><a href="<?php URL ?>dashboard/sair"><i class="fa fa-power-off"></i> Sair</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="pageContent"></div>   
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+            <div class="" style="margin-top:30px;">
+
+                <noscript>Para usar todas funcionalidades ativa o javascript no seu navegador</noscript> 
+
+
+                <?php if (isset($this->erro)): ?>
+                    <?php print $this->erro; ?>
+
+                <?php endif; ?>
+
+                <?php if (isset($this->mensagem)): ?>
+                    <?php print $this->mensagem; ?>
+                <?php endif; ?>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="pagination">
+        <li><?php if (isset($this->paginacion) && !empty($this->paginacion)) echo $this->paginacion; ?></li>
+    </ul>

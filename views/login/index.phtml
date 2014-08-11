@@ -1,0 +1,35 @@
+<br />
+<br />
+
+<!---Formulario de Login Modal------>
+<div id="topbar"><a href="<?php print URL; ?>">Portal Angola</a></div>
+  <div id="w">
+    <div id="content">
+    
+      <img src="<?php //print URL ?>public/img/admin.gif" class="img-responsive"/>
+      <center><a href="#loginmodal" class="flatbtn" id="modaltrigger">Faça Seu Login</a></center>
+    </div>
+  </div>
+  <div id="loginmodal" style="display:none;">
+    <h1>Login de Usuario</h1>
+    <form id="loginform" name="loginform" method="post" action="login">
+      <label for="username">Usuario:</label>
+      <input type="text"  placeholder="teste@teste.com" name="email" class="txtfield" tabindex="1" value="<?php if(isset($this->dados)) print $this->dados['email'];?>">
+      <input type="hidden" value="1" name="enviar"/>
+      <label for="password">Senha:</label>
+      <input type="password"  name="senha" class="txtfield" tabindex="2" value="<?php if(isset($this->dados)) print $this->dados['senha'];?>">
+      
+      <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3"></div>
+    </form>
+  </div><!--
+
+ <!---- formulario de login --->
+<!--<form id="logi" name="loginform" method="post" action="login">
+      <label for="username">Usuario:</label>
+      <input type="text"  placeholder="teste@teste.com" name="email" class="txtfield" tabindex="1">
+      <input type="hidden" value="1" name="enviar"/>
+      <label for="password">Senha:</label>
+      <input type="password"  name="senha" class="txtfield" tabindex="2">
+      
+      <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3"></div>
+</form>-->

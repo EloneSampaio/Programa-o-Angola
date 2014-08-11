@@ -1,0 +1,36 @@
+#footer {
+	color: white;
+	background-color: #252525;
+	.gradient {
+		height: 10px;
+		background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, transparent), color-stop(2, rgba(0, 0, 0, .1)));
+		background-image: -moz-linear-gradient(center bottom, transparent 0%, rgba(0, 0, 0, .2) 100%);
+		bottom: 0;
+		width: 100%;
+	}
+}
+
+#footer-wrapper {
+	font-size: 16px;
+	width: 900px;
+	padding: 20px 20px 30px 20px;
+	margin: 0 auto;
+	p {
+		margin: 0;
+	}
+	a {
+		color: white;
+	}
+}
+
+#footer {
+	color: white;
+	background-color: #252525;
+	.gradient {
+		height: 10px;
+		background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, transparent), color-stop(2, rgba(0, 0, 0, .1)));
+		background-image: -moz-linear-gradient(center bottom, transparent 0%, rgba(0, 0, 0, .2) 100%);
+		bottom: 0;
+		width: 100%;
+	}
+}

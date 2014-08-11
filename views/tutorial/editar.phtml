@@ -1,0 +1,104 @@
+<hr>
+<br />
+<br />
+
+
+
+<h2><?php print $this->titulo; ?></h2><br />
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea#elm1",
+        theme: "modern",
+        width: 1200,
+        height: 300,
+        plugins: [
+            "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+            "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+            "save table contextmenu directionality emoticons template paste textcolor"
+        ],
+        content_css: "css/content.css",
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+        style_formats: [
+            {title: 'Bold text', inline: 'b'},
+            {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+            {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+            {title: 'Example 1', inline: 'span', classes: 'example1'},
+            {title: 'Example 2', inline: 'span', classes: 'example2'},
+            {title: 'Table styles'},
+            {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+        ]
+    });
+</script>
+
+<?php if (isset($this->dados) && !empty($this->dados)): ?>
+    <div class="row" style="margin-left: 70px;">
+        <div class="col-lg-9">   
+
+            <?php foreach ($this->dados as $d) : ?>
+                <form role="form" id="novo" method="post" enctype="multipart/form-data" action="editar" class="form form-horizontal" >
+                    <hr>
+
+
+
+                    <div class="form-group">
+                        <label for="Email">Titulo</label>
+                        <input type="text" class="form-control"  placeholder="Insira" name="titulo" value="<?php print $d['titulo'] ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="">descricao</label>
+                        <input type="text" class="form-control"  placeholder="Insira" name="descricao" value="<?php print $d['descricao'] ?>">
+                        <input type="hidden" name="guardar" value="1">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="Nivel">Categoria</label>
+                        <select  class="form-control" id="nivel"  name="categoria">
+                            <?php
+                            if (isset($this->listar_categoria) && !empty($this->listar_categoria)):
+                                foreach ($this->listar_categoria as $v):
+                                    ?>
+                                    <option value="<?php print $v['nome']; ?>">
+                                        <?php
+                                        print $v['nome'];
+                                        ?> 
+                                    </option>
+                                <?php endforeach; //Fim do select?>
+                            <?php endif; //Fim do select?>  
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Nivel">Destaque</label>
+                        <select  class="form-control" id="nivel"  name="destaque" >
+                            <option value="sim">Sim</option>
+                            <option value="nso">Nao</option>
+                        </select>
+                    </div>
+
+
+
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"  name="status" checked="true" value="<?php print $d['status'] ?>">Publicar Agora
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label >noticia</label>
+                        <textarea class="form-control"  name="msg"  id="elm1" rows="3" cols="3" ><?php print $d['msg'] ?></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-saved"></i>Actualizar</button>
+                </form>
+
+
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+</div>
+
+
+
+
